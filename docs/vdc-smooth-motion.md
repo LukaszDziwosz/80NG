@@ -18,31 +18,12 @@ incorrectly call `$d600/$d601` SID registers; they are the VDC ports.
 | `$55aa–$56b4` | Selects a ball character variant from `$8c14`, writes its character code and optional adjoining codes; the next row is `+80` bytes. | Sub-character motion is implemented through glyph variants and tiny screen updates. |
 | `$43b1–$4460` | Scans the keyboard via CIA1 directly. | Input does not depend on KERNAL key-repeat events. |
 
-The reference includes a separate bitmap splash path on a 64 KB VDC. Do not
-mistake that for the character-based gameplay renderer. For example, R25 is
-selected between bitmap `$80` and character/attributes `$40` at `$38b8–$38cc`.
-The fade transition at `$3b76–$3b81` selects the character configuration again.
 
 Its high-resolution mode is interlaced. A vertical-blank tick is therefore a
 field tick; that alone does not prove 60 complete progressive high-resolution
 frames per second. The important, reusable technique is small character-based
 object updates synchronized with each VDC refresh.
 
-## What was wrong in Pong
-
-The previous loop cleared and reconstructed CPU screen/attribute buffers, then
-uploaded all 2,000 character bytes each tick, including static borders, scores
-and empty space. It did this without explicitly selecting 2 MHz. Page flipping
-prevented some partial-screen updates but did not reduce that work. It also
-blanked/unblanked the display on each flip.
-
-Positions were measured in character cells. Even a fast renderer would still
-move the ball in eight-pixel steps. Bar motion used queued key events, so a
-held key inherited keyboard repeat delay and cadence.
-
-Note that the terminology in this document is deliberately Pong-flavoured: the
-shipped game (`src/80ng.c`) calls the same objects "bars" and "points", but the
-original arcade game these mechanics come from is Pong.
 
 ## Adaptation in this project
 
