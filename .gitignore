@@ -1,0 +1,17 @@
+# Build output: only the runnable program is shared, everything else the
+# toolchain or the test harness produces is ignored.
+build/*
+!build/.gitkeep
+!build/80ng.prg
+
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Editor / tooling
+.vscode/
+*.swp
