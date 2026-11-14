@@ -1,6 +1,7 @@
+OSCAR64_HOME ?= $(HOME)/Developer/oscar64
 OSCAR64 ?= $(shell command -v oscar64 2>/dev/null)
 ifeq ($(strip $(OSCAR64)),)
-OSCAR64 := $(HOME)/Desktop/80Terminal/.tools/oscar64/bin/oscar64
+OSCAR64 := $(OSCAR64_HOME)/bin/oscar64
 endif
 VICE ?= x128
 

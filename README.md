@@ -50,7 +50,7 @@ make clean  # remove build/80ng.prg
 ```
 
 If Oscar64 is not on PATH, the Makefile falls back to a local install at
-`$HOME/Desktop/80Terminal/.tools/oscar64/bin/oscar64`; override it with
+`$HOME/Developer/oscar64/bin/oscar64` (or `$OSCAR64_HOME/bin/oscar64`); override it with
 `make OSCAR64=/path/to/oscar64` or by setting `OSCAR64` in the environment.
 
 ## Testing
