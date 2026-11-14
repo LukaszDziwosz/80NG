@@ -68,19 +68,8 @@ NTSC/64 KB configurations and save screenshots under `build/`.
 |---|---|
 | `src/` | All source. `80ng.c` is the only file handed to Oscar64. |
 | `tests/` | `vice_80ng.py` drives the real PRG through the VICE binary monitor. |
-| `docs/` | Background notes on the renderer and the reference disassembly. |
 | `build/` | `80ng.prg` (the runnable program) plus ignored intermediates. |
 | `Makefile` | Build, run and test targets. |
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the source and test conventions.
-
-## Documentation
-
-- [docs/vdc-smooth-motion.md](docs/vdc-smooth-motion.md) — how the character
-  "sprite" renderer works, what was adapted from the BustedBoulders
-  disassembly, and the measured VDC throughput.
-- [build/README.md](build/README.md) — what is committed in `build/` and what is
-  generated.
 
 ## License
 
